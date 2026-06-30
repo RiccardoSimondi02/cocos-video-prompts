@@ -1,0 +1,28 @@
+
+
+{
+  "astronaut": {
+    "positive": ["human"],
+    "negative": []
+  },
+  "samurai": {
+    "positive": ["human"],
+    "negative": []
+  },
+  "robot": {
+    "positive": ["artificial_entity"],
+    "negative": []
+  },
+  "tropical_beach": {
+    "positive": ["environment", "outdoor"],
+    "negative": ["indoor"]
+  },
+  "snowy_forest": {
+    "positive": ["environment", "outdoor"],
+    "negative": ["indoor"]
+  },
+  "cyberpunk_street": {
+    "positive": ["environment", "outdoor", "urban"],
+    "negative": ["indoor"]
+  }
+}

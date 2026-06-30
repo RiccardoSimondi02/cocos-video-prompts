@@ -1,0 +1,162 @@
+[
+  {
+    "id": "astronaut",
+    "type": "subject",
+    "typical_properties": {
+      "suit": 0.9,
+      "helmet": 0.66,
+      "space": 0.64,
+      "life_support": 0.64,
+      "spacecraft": 0.64,
+      "reflective_visor": 0.64,
+      "human": 0.62,
+      "white": 0.6
+    },
+    "rigid_properties": {
+      "positive": [
+        "human"
+      ],
+      "negative": []
+    }
+  },
+  {
+    "id": "samurai",
+    "type": "subject",
+    "typical_properties": {
+      "armor": 0.9,
+      "sword": 0.73,
+      "warrior": 0.64,
+      "silk_lacing": 0.64,
+      "helmet": 0.63,
+      "martial": 0.6,
+      "lacquered": 0.6,
+      "cord": 0.6
+    },
+    "rigid_properties": {
+      "positive": [
+        "human"
+      ],
+      "negative": []
+    }
+  },
+  {
+    "id": "robot",
+    "type": "subject",
+    "typical_properties": {
+      "sensor": 0.9,
+      "non_humanoid": 0.78,
+      "machine": 0.78,
+      "surface": 0.68,
+      "arm": 0.68,
+      "joint": 0.62,
+      "hand": 0.6,
+      "head": 0.6
+    },
+    "rigid_properties": {
+      "positive": [
+        "artificial_entity"
+      ],
+      "negative": []
+    }
+  },
+  {
+    "id": "wrestler",
+    "type": "subject",
+    "typical_properties": {
+      "mat": 0.9,
+      "singlet": 0.9,
+      "wrestling": 0.9,
+      "athlete": 0.72,
+      "tight": 0.72,
+      "competition": 0.72,
+      "wrestling_shoe": 0.72,
+      "leg": 0.6
+    },
+    "rigid_properties": {
+      "positive": [],
+      "negative": []
+    }
+  },
+  {
+    "id": "tropical_beach",
+    "type": "background",
+    "typical_properties": {
+      "coastal_environment": 0.9,
+      "palm_tree": 0.9,
+      "ocean_water": 0.9,
+      "warm_sunlight": 0.9,
+      "relaxed_atmosphere": 0.9,
+      "bright_color": 0.9,
+      "calm_wave": 0.9,
+      "outdoor": 0.6
+    },
+    "rigid_properties": {
+      "positive": [
+        "environment",
+        "outdoor"
+      ],
+      "negative": [
+        "indoor"
+      ]
+    }
+  },
+  {
+    "id": "snowy_forest",
+    "type": "background",
+    "typical_properties": {
+      "snow": 0.9,
+      "branch": 0.71,
+      "tree": 0.67,
+      "white": 0.67,
+      "trunk": 0.64,
+      "ground": 0.64,
+      "cover": 0.6,
+      "cold": 0.6
+    },
+    "rigid_properties": {
+      "positive": [
+        "environment",
+        "outdoor"
+      ],
+      "negative": [
+        "indoor"
+      ]
+    }
+  },
+  {
+    "id": "tropical_forest",
+    "type": "background",
+    "typical_properties": {
+      "tropical_climate": 0.9,
+      "tree_canopy": 0.9,
+      "canopy_density": 0.9,
+      "tropical_region": 0.9,
+      "tropical_domain": 0.9,
+      "subtropical_domain": 0.9,
+      "ecoregion": 0.6,
+      "land": 0.6
+    },
+    "rigid_properties": {
+      "positive": [],
+      "negative": []
+    }
+  },
+  {
+    "id": "Turin",
+    "type": "background",
+    "typical_properties": {
+      "city": 0.9,
+      "river": 0.72,
+      "center": 0.69,
+      "street": 0.66,
+      "piazza": 0.66,
+      "historic_center": 0.66,
+      "alp": 0.6,
+      "mole": 0.6
+    },
+    "rigid_properties": {
+      "positive": [],
+      "negative": []
+    }
+  }
+]

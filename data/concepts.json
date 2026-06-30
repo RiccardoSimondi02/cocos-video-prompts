@@ -1,0 +1,42 @@
+[
+  {
+    "id": "astronaut",
+    "type": "subject",
+    "query": "astronaut"
+  },
+  {
+    "id": "samurai",
+    "type": "subject",
+    "query": "samurai"
+  },
+  {
+    "id": "robot",
+    "type": "subject",
+    "query": "robot"
+  },
+  {
+    "id": "wrestler",
+    "type": "subject",
+    "query": "wrestler"
+  },
+  {
+    "id": "tropical_beach",
+    "type": "background",
+    "query": "tropical beach"
+  },
+  {
+    "id": "snowy_forest",
+    "type": "background",
+    "query": "snowy forest"
+  },
+  {
+    "id": "tropical_forest",
+    "type": "background",
+    "query": "tropical forest"
+  },
+  {
+    "id": "Turin",
+    "type": "background",
+    "query": "Turin"
+  }
+]
