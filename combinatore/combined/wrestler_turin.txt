@@ -1,0 +1,30 @@
+Title: wrestler-turin
+
+Head Concept Name: wrestler
+Modifier Concept Name: turin
+
+head, human
+head, -mat
+
+
+T(modifier), city, 0.9
+T(modifier), river, 0.72
+T(modifier), center, 0.69
+T(modifier), historic_center, 0.66
+T(modifier), piazza, 0.66
+T(modifier), street, 0.66
+T(modifier), alp, 0.6
+T(modifier), mole, 0.6
+
+T(head), singlet, 0.9
+T(head), wrestling, 0.9
+T(head), athlete, 0.75
+T(head), competition, 0.75
+T(head), tight, 0.75
+T(head), wrestling_shoe, 0.75
+T(head), leg, 0.66
+T(head), opponent, 0.6
+
+
+Result: {"city": 0.9, "river": 0.72, "center": 0.69, "historic_center": 0.66, "piazza": 0.66, "street": 0.66, "mole": 0.6, "singlet": 0.9, "wrestling": 0.9, "athlete": 0.75, "competition": 0.75, "tight": 0.75, "wrestling_shoe": 0.75, "leg": 0.66, "@scenario_probability": 0.20873782036372326}
+Scenario: [1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0.20873782036372326]

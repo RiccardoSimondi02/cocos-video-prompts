@@ -1,0 +1,29 @@
+Title: deep_sea_diver-coral_reef
+
+Head Concept Name: deep_sea_diver
+Modifier Concept Name: coral_reef
+
+head, human
+
+
+T(modifier), sea_fan, 0.9
+T(modifier), brain_coral, 0.75
+T(modifier), crevice, 0.67
+T(modifier), fish, 0.67
+T(modifier), branching, 0.64
+T(modifier), colony, 0.64
+T(modifier), rock, 0.63
+T(modifier), maze_like, 0.6
+
+T(head), canvas_suit, 0.9
+T(head), helmet, 0.89
+T(head), heavy, 0.8
+T(head), brass, 0.7
+T(head), surface, 0.67
+T(head), metal, 0.64
+T(head), thick, 0.62
+T(head), rope, 0.6
+
+
+Result: {"sea_fan": 0.9, "brain_coral": 0.75, "crevice": 0.67, "fish": 0.67, "branching": 0.64, "colony": 0.64, "rock": 0.63, "canvas_suit": 0.9, "helmet": 0.89, "heavy": 0.8, "brass": 0.7, "surface": 0.67, "metal": 0.64, "thick": 0.62, "@scenario_probability": 0.14919039629909156}
+Scenario: [1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0.14919039629909156]

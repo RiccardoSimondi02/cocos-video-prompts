@@ -1,0 +1,32 @@
+Title: astronaut-snowy_forest
+
+Head Concept Name: astronaut
+Modifier Concept Name: snowy_forest
+
+head, human
+
+modifier, environment
+modifier, outdoor
+modifier, -indoor
+
+T(modifier), snow, 0.9
+T(modifier), branch, 0.7
+T(modifier), white, 0.66
+T(modifier), tree, 0.65
+T(modifier), ground, 0.63
+T(modifier), trunk, 0.63
+T(modifier), cold, 0.6
+T(modifier), cover, 0.6
+
+T(head), suit, 0.9
+T(head), helmet, 0.69
+T(head), space, 0.65
+T(head), human, 0.64
+T(head), reflective_visor, 0.64
+T(head), spacecraft, 0.64
+T(head), white, 0.61
+T(head), glove, 0.6
+
+
+Result: {"snow": 0.9, "branch": 0.7, "white": 0.61, "tree": 0.65, "ground": 0.63, "trunk": 0.63, "cover": 0.6, "suit": 0.9, "helmet": 0.69, "space": 0.65, "human": 0.64, "reflective_visor": 0.64, "spacecraft": 0.64, "@scenario_probability": 0.06646987887299191}
+Scenario: [1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0.06646987887299191]

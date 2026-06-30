@@ -1,0 +1,32 @@
+Title: astronaut-tropical_beach
+
+Head Concept Name: astronaut
+Modifier Concept Name: tropical_beach
+
+head, human
+
+modifier, environment
+modifier, outdoor
+modifier, -indoor
+
+T(modifier), bright_color, 0.9
+T(modifier), calm_wave, 0.9
+T(modifier), coastal_environment, 0.9
+T(modifier), ocean_water, 0.9
+T(modifier), palm_tree, 0.9
+T(modifier), relaxed_atmosphere, 0.9
+T(modifier), warm_sunlight, 0.9
+T(modifier), outdoor, 0.6
+
+T(head), suit, 0.9
+T(head), helmet, 0.66
+T(head), life_support, 0.64
+T(head), reflective_visor, 0.64
+T(head), space, 0.64
+T(head), spacecraft, 0.64
+T(head), human, 0.62
+T(head), white, 0.6
+
+
+Result: {"bright_color": 0.9, "calm_wave": 0.9, "coastal_environment": 0.9, "ocean_water": 0.9, "palm_tree": 0.9, "relaxed_atmosphere": 0.9, "warm_sunlight": 0.9, "suit": 0.9, "helmet": 0.66, "life_support": 0.64, "reflective_visor": 0.64, "space": 0.64, "spacecraft": 0.64, "human": 0.62, "@scenario_probability": 0.47284149212405585}
+Scenario: [1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0.47284149212405585]

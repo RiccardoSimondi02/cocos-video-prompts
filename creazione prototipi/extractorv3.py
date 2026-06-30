@@ -30,7 +30,8 @@ GENERIC_LEMMAS = {
     "type", "kind", "way", "part", "area", "place",
     "someone", "something", "life", "training", "body",
     "visual", "scene", "long", "silhouette", "like",
-    "concept", "property", "feature", "image", "video",
+    "concept", "property", "feature", "image", "video", "large", 
+    "small", "formation"
 }
 
 
