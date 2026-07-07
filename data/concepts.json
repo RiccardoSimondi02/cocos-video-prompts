@@ -35,8 +35,18 @@
     "query": "tropical forest"
   },
   {
-    "id": "Turin",
+    "id": "turin",
     "type": "background",
     "query": "Turin"
+  },
+  {
+    "id": "deep_sea_diver",
+    "type": "subject",
+    "query": "deep sea diver"
+  },
+  {
+    "id": "coral_reef",
+    "type": "background",
+    "query": "coral reef "
   }
 ]

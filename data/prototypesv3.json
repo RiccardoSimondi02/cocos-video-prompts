@@ -4,12 +4,12 @@
     "type": "subject",
     "typical_properties": {
       "suit": 0.9,
-      "helmet": 0.66,
-      "space": 0.64,
-      "life_support": 0.64,
+      "space": 0.65,
+      "helmet": 0.65,
       "spacecraft": 0.64,
       "reflective_visor": 0.64,
-      "human": 0.62,
+      "life_support": 0.62,
+      "human": 0.6,
       "white": 0.6
     },
     "rigid_properties": {
@@ -25,11 +25,11 @@
     "typical_properties": {
       "armor": 0.9,
       "sword": 0.73,
-      "warrior": 0.64,
-      "silk_lacing": 0.64,
+      "warrior": 0.65,
+      "silk_lacing": 0.65,
       "helmet": 0.63,
-      "martial": 0.6,
-      "lacquered": 0.6,
+      "martial": 0.61,
+      "lacquered": 0.61,
       "cord": 0.6
     },
     "rigid_properties": {
@@ -48,7 +48,7 @@
       "machine": 0.78,
       "surface": 0.68,
       "arm": 0.68,
-      "joint": 0.62,
+      "joint": 0.64,
       "hand": 0.6,
       "head": 0.6
     },
@@ -63,14 +63,14 @@
     "id": "wrestler",
     "type": "subject",
     "typical_properties": {
-      "mat": 0.9,
       "singlet": 0.9,
       "wrestling": 0.9,
-      "athlete": 0.72,
-      "tight": 0.72,
-      "competition": 0.72,
-      "wrestling_shoe": 0.72,
-      "leg": 0.6
+      "athlete": 0.75,
+      "tight": 0.75,
+      "competition": 0.75,
+      "wrestling_shoe": 0.75,
+      "leg": 0.66,
+      "opponent": 0.6
     },
     "rigid_properties": {
       "positive": [],
@@ -106,12 +106,12 @@
     "typical_properties": {
       "snow": 0.9,
       "branch": 0.71,
-      "tree": 0.67,
       "white": 0.67,
+      "tree": 0.66,
       "trunk": 0.64,
-      "ground": 0.64,
       "cover": 0.6,
-      "cold": 0.6
+      "cold": 0.6,
+      "white_ground": 0.6
     },
     "rigid_properties": {
       "positive": [
@@ -142,7 +142,7 @@
     }
   },
   {
-    "id": "Turin",
+    "id": "turin",
     "type": "background",
     "typical_properties": {
       "city": 0.9,
@@ -153,6 +153,42 @@
       "historic_center": 0.66,
       "alp": 0.6,
       "mole": 0.6
+    },
+    "rigid_properties": {
+      "positive": [],
+      "negative": []
+    }
+  },
+  {
+    "id": "deep_sea_diver",
+    "type": "subject",
+    "typical_properties": {
+      "canvas_suit": 0.9,
+      "helmet": 0.89,
+      "heavy": 0.8,
+      "brass": 0.7,
+      "surface": 0.67,
+      "metal": 0.64,
+      "thick": 0.62,
+      "rope": 0.6
+    },
+    "rigid_properties": {
+      "positive": [],
+      "negative": []
+    }
+  },
+  {
+    "id": "coral_reef",
+    "type": "background",
+    "typical_properties": {
+      "sea_fan": 0.9,
+      "brain_coral": 0.75,
+      "crevice": 0.67,
+      "fish": 0.67,
+      "colony": 0.64,
+      "branching": 0.64,
+      "rock": 0.63,
+      "maze_like": 0.6
     },
     "rigid_properties": {
       "positive": [],
