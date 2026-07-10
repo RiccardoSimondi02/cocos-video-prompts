@@ -219,3 +219,8 @@ __marimo__/
 
 # My files
 env.txt
+video/
+prompt usati per video.txt
+prompt x fonti.txt
+**/node_modules
+**/videos
