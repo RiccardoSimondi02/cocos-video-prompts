@@ -147,6 +147,10 @@ activemq-data/
 # SageMath parsed files
 *.sage.py
 
+# Video-eval: dati dei voti raccolti (non versionare)
+video-eval/backend/votes.jsonl
+video-eval/backend/votes_unsynced.jsonl
+
 # Environments
 .env
 .envrc

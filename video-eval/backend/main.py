@@ -8,19 +8,23 @@ voto a un Google Sheet (via Google Apps Script).
 """
 
 import json
+import logging
 import os
 import random
+import threading
+import time
 import uuid
 import urllib.request
+from datetime import datetime, timezone
 from pathlib import Path
 
 try:
     from dotenv import load_dotenv
     load_dotenv(Path(__file__).parent / ".env")
 except ImportError:
-    pass  
+    pass
 
-from fastapi import FastAPI, HTTPException
+from fastapi import BackgroundTasks, FastAPI, HTTPException
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
@@ -31,7 +35,23 @@ VIDEOS_DIR = BASE_DIR / "videos"
 PAIRS_FILE = BASE_DIR / "pairs.json"
 FRONTEND_DIST = BASE_DIR.parent / "frontend" / "dist"
 
+# ogni voto viene scritto qui prima di rispondere al
+# client. I voti che non riescono a raggiungere il Google Sheet finiscono in
+# VOTES_UNSYNCED_FILE per un reinvio.
+VOTES_FILE = BASE_DIR / "votes.jsonl"
+VOTES_UNSYNCED_FILE = BASE_DIR / "votes_unsynced.jsonl"
+
 SHEET_WEBHOOK_URL = os.environ.get("SHEET_WEBHOOK_URL", "").strip()
+SHEET_TIMEOUT = 30          
+SHEET_RETRIES = 3
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger("video-eval")
+
+# Serializza le chiamate ad Apps Script
+_sheet_lock = threading.Lock()
+# Protegge le append ai file di log dei voti.
+_file_lock = threading.Lock()
 
 app = FastAPI(title="Video Evaluation")
 
@@ -48,22 +68,59 @@ def load_pairs():
         return json.load(f)["pairs"]
 
 
+def _append_jsonl(path: Path, payload: dict):
+    line = json.dumps(payload, ensure_ascii=False)
+    with _file_lock:
+        with open(path, "a", encoding="utf-8") as f:
+            f.write(line + "\n")
+
+
 def send_to_sheet(payload: dict):
-    """Inoltra un voto al Google Sheet. Solleva eccezione se fallisce."""
+    """
+    Inoltra un voto al Google Sheet. Le chiamate ad
+    Apps Script sono serializzate (vedi _sheet_lock) perché non regge bene la
+    concorrenza. Solleva l'ultima eccezione se tutti i tentativi falliscono.
+    """
     if not SHEET_WEBHOOK_URL:
         raise RuntimeError("SHEET_WEBHOOK_URL non configurato")
     data = json.dumps(payload).encode("utf-8")
-    req = urllib.request.Request(
-        SHEET_WEBHOOK_URL,
-        data=data,
-        headers={"Content-Type": "application/json"},
-        method="POST",
-    )
-    with urllib.request.urlopen(req, timeout=10) as resp:
-        body = resp.read().decode("utf-8")
-    result = json.loads(body)
-    if not result.get("ok"):
-        raise RuntimeError(f"Sheet ha risposto con errore: {result}")
+
+    last_err = None
+    for attempt in range(1, SHEET_RETRIES + 1):
+        try:
+            req = urllib.request.Request(
+                SHEET_WEBHOOK_URL,
+                data=data,
+                headers={"Content-Type": "application/json"},
+                method="POST",
+            )
+            with _sheet_lock:
+                with urllib.request.urlopen(req, timeout=SHEET_TIMEOUT) as resp:
+                    body = resp.read().decode("utf-8")
+            result = json.loads(body)
+            if not result.get("ok"):
+                raise RuntimeError(f"Sheet ha risposto con errore: {result}")
+            return
+        except Exception as e:  # retray su qualsiasi errore
+            last_err = e
+            logger.warning("Invio al Sheet fallito (tentativo %d/%d): %s",
+                           attempt, SHEET_RETRIES, e)
+            if attempt < SHEET_RETRIES:
+                time.sleep(min(2 ** attempt, 8))
+    raise last_err
+
+
+def forward_to_sheet(payload: dict):
+    """Task in background: inoltra al Sheet e, se fallisce, non perde il voto."""
+    try:
+        send_to_sheet(payload)
+    except Exception as e:  # noqa: BLE001
+        logger.error("Voto non inoltrato al Sheet, salvato in %s: %s",
+                     VOTES_UNSYNCED_FILE.name, e)
+        try:
+            _append_jsonl(VOTES_UNSYNCED_FILE, payload)
+        except Exception:  # noqa: BLE001
+            logger.exception("Impossibile scrivere il voto non sincronizzato")
 
 
 # ---------------------------------------------------------------------------
@@ -118,7 +175,7 @@ def new_session():
 
 
 @app.post("/api/vote")
-def submit_vote(vote: VoteIn):
+def submit_vote(vote: VoteIn, background: BackgroundTasks):
     if vote.system_A not in ("mine", "base") or vote.system_B not in ("mine", "base"):
         raise HTTPException(400, "system_A/system_B non validi")
 
@@ -132,6 +189,7 @@ def submit_vote(vote: VoteIn):
         raise HTTPException(400, f"scelta non valida: {choice}")
 
     payload = {
+        "ts": datetime.now(timezone.utc).isoformat(),
         "session_id": vote.session_id,
         "concept": vote.concept,
         "system_A": vote.system_A,
@@ -145,10 +203,11 @@ def submit_vote(vote: VoteIn):
     }
 
     try:
-        send_to_sheet(payload)
-    except Exception as e:
-        # Non perdere il voto silenziosamente: segnala l'errore al client.
-        raise HTTPException(502, f"Impossibile salvare il voto: {e}")
+        _append_jsonl(VOTES_FILE, payload)
+    except Exception as e:  # noqa: BLE001
+        raise HTTPException(500, f"Impossibile salvare il voto in locale: {e}")
+
+    background.add_task(forward_to_sheet, payload)
 
     return {"ok": True}
 
