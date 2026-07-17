@@ -48,5 +48,25 @@
     "id": "coral_reef",
     "type": "background",
     "query": "coral reef "
+  },
+  {
+    "id": "venice",
+    "type": "background",
+    "query": "venice"
+  },
+  {
+    "id": "glassblower",
+    "type": "subject",
+    "query": "glassblower"
+  },
+  {
+    "id": "cyberpunk_street",
+    "type": "background",
+    "query": "cyberpunk_street"
+  },
+  {
+    "id": "knight",
+    "type": "subject",
+    "query": "knight"
   }
 ]

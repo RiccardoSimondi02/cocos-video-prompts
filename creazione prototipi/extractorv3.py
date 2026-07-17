@@ -22,7 +22,7 @@ ALLOWED_BIGRAM_PATTERNS = {
 # Utils per i bigrammi
 ABSTRACT_HEADS = {
     "scheme", "proportion",
-    "world", "system", "process", "structure", "condition",
+    "world", "system", "process", "structure", "condition", "color"
 }
 
 GENERIC_LEMMAS = {
@@ -31,7 +31,7 @@ GENERIC_LEMMAS = {
     "someone", "something", "life", "training", "body",
     "visual", "scene", "long", "silhouette", "like",
     "concept", "property", "feature", "image", "video", "large", 
-    "small", "formation"
+    "small", "formation", "face", "design", "visible"
 }
 
 

@@ -22,7 +22,19 @@
     "negative": ["indoor"]
   },
   "cyberpunk_street": {
-    "positive": ["environment", "outdoor", "urban"],
+    "positive": [],
     "negative": ["indoor"]
+  },
+  "knight": {
+    "positive": [],
+    "negative": ["futuristic"]
+  },
+  "glassblower": {
+    "positive": ["human"],
+    "negative": []
+  },
+  "venice": {
+    "positive": ["outdoor"],
+    "negative": []
   }
 }

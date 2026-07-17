@@ -4,13 +4,13 @@
     "type": "subject",
     "typical_properties": {
       "suit": 0.9,
-      "space": 0.65,
-      "helmet": 0.65,
-      "spacecraft": 0.64,
-      "reflective_visor": 0.64,
-      "life_support": 0.62,
-      "human": 0.6,
-      "white": 0.6
+      "space": 0.66,
+      "helmet": 0.66,
+      "spacecraft": 0.65,
+      "reflective_visor": 0.65,
+      "life_support": 0.64,
+      "human": 0.62,
+      "mission": 0.6
     },
     "rigid_properties": {
       "positive": [
@@ -24,10 +24,10 @@
     "type": "subject",
     "typical_properties": {
       "armor": 0.9,
-      "sword": 0.73,
-      "warrior": 0.65,
-      "silk_lacing": 0.65,
-      "helmet": 0.63,
+      "sword": 0.75,
+      "warrior": 0.66,
+      "silk_lacing": 0.66,
+      "helmet": 0.62,
       "martial": 0.61,
       "lacquered": 0.61,
       "cord": 0.6
@@ -44,13 +44,13 @@
     "type": "subject",
     "typical_properties": {
       "sensor": 0.9,
-      "non_humanoid": 0.78,
-      "machine": 0.78,
-      "surface": 0.68,
-      "arm": 0.68,
-      "joint": 0.64,
-      "hand": 0.6,
-      "head": 0.6
+      "non_humanoid": 0.79,
+      "machine": 0.79,
+      "surface": 0.67,
+      "arm": 0.67,
+      "joint": 0.63,
+      "head": 0.61,
+      "limb": 0.6
     },
     "rigid_properties": {
       "positive": [
@@ -66,10 +66,10 @@
       "singlet": 0.9,
       "wrestling": 0.9,
       "athlete": 0.75,
-      "tight": 0.75,
       "competition": 0.75,
       "wrestling_shoe": 0.75,
-      "leg": 0.66,
+      "tight": 0.7,
+      "leg": 0.65,
       "opponent": 0.6
     },
     "rigid_properties": {
@@ -86,9 +86,9 @@
       "ocean_water": 0.9,
       "warm_sunlight": 0.9,
       "relaxed_atmosphere": 0.9,
-      "bright_color": 0.9,
       "calm_wave": 0.9,
-      "outdoor": 0.6
+      "outdoor": 0.6,
+      "sunset": 0.6
     },
     "rigid_properties": {
       "positive": [
@@ -106,8 +106,8 @@
     "typical_properties": {
       "snow": 0.9,
       "branch": 0.71,
-      "white": 0.67,
-      "tree": 0.66,
+      "tree": 0.67,
+      "white": 0.65,
       "trunk": 0.64,
       "cover": 0.6,
       "cold": 0.6,
@@ -146,11 +146,11 @@
     "type": "background",
     "typical_properties": {
       "city": 0.9,
-      "river": 0.72,
-      "center": 0.69,
-      "street": 0.66,
-      "piazza": 0.66,
-      "historic_center": 0.66,
+      "river": 0.76,
+      "center": 0.72,
+      "historic_center": 0.68,
+      "piazza": 0.65,
+      "street": 0.63,
       "alp": 0.6,
       "mole": 0.6
     },
@@ -164,13 +164,13 @@
     "type": "subject",
     "typical_properties": {
       "canvas_suit": 0.9,
-      "helmet": 0.89,
-      "heavy": 0.8,
+      "helmet": 0.87,
+      "heavy": 0.79,
       "brass": 0.7,
-      "surface": 0.67,
-      "metal": 0.64,
-      "thick": 0.62,
-      "rope": 0.6
+      "surface": 0.66,
+      "thick": 0.61,
+      "rope": 0.6,
+      "metal": 0.6
     },
     "rigid_properties": {
       "positive": [],
@@ -183,8 +183,8 @@
     "typical_properties": {
       "sea_fan": 0.9,
       "brain_coral": 0.75,
-      "crevice": 0.67,
-      "fish": 0.67,
+      "crevice": 0.68,
+      "fish": 0.68,
       "colony": 0.64,
       "branching": 0.64,
       "rock": 0.63,
@@ -193,6 +193,85 @@
     "rigid_properties": {
       "positive": [],
       "negative": []
+    }
+  },
+  {
+    "id": "venice",
+    "type": "background",
+    "typical_properties": {
+      "gondola": 0.9,
+      "canal": 0.9,
+      "grand_canal": 0.83,
+      "mooring_post": 0.83,
+      "bridge": 0.72,
+      "water": 0.71,
+      "calli": 0.6,
+      "dark_water": 0.6
+    },
+    "rigid_properties": {
+      "positive": [
+        "outdoor"
+      ],
+      "negative": []
+    }
+  },
+  {
+    "id": "glassblower",
+    "type": "subject",
+    "typical_properties": {
+      "glass": 0.9,
+      "molten_glass": 0.82,
+      "heat_resistant": 0.71,
+      "rod": 0.71,
+      "orange": 0.66,
+      "blowpipe": 0.6,
+      "metre": 0.6,
+      "closed_toe": 0.6
+    },
+    "rigid_properties": {
+      "positive": [
+        "human"
+      ],
+      "negative": []
+    }
+  },
+  {
+    "id": "cyberpunk_street",
+    "type": "background",
+    "typical_properties": {
+      "building": 0.9,
+      "metal": 0.84,
+      "glass": 0.78,
+      "neon": 0.75,
+      "sign": 0.75,
+      "wet": 0.75,
+      "city": 0.68,
+      "claustrophobic": 0.6
+    },
+    "rigid_properties": {
+      "positive": [],
+      "negative": [
+        "indoor"
+      ]
+    }
+  },
+  {
+    "id": "knight",
+    "type": "subject",
+    "typical_properties": {
+      "steel": 0.9,
+      "chainmail_ring": 0.79,
+      "plate": 0.76,
+      "heraldic": 0.7,
+      "horse": 0.7,
+      "shield": 0.67,
+      "sabaton": 0.6,
+      "lance": 0.6
+    },
+    "rigid_properties": {
+      "positive": [],
+      "negative": [
+      ]
     }
   }
 ]

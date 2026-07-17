@@ -1,0 +1,33 @@
+{
+  "payload": {
+    "subject": "glassblower",
+    "subject_properties": [
+      "glass",
+      "molten_glass",
+      "heat_resistant",
+      "rod",
+      "orange",
+      "metre"
+    ],
+    "environment": "venice",
+    "environment_properties": [
+      "canal",
+      "gondola",
+      "grand_canal",
+      "mooring_post",
+      "bridge",
+      "water",
+      "calli",
+      "dark_water"
+    ],
+    "negative_properties": [],
+    "unknown_properties": [],
+    "constraints": {
+      "do_not_add_new_content": true,
+      "preserve_subject_environment_distinction": true,
+      "output_type": "single video prompt",
+      "style": "natural, concise, visually descriptive"
+    }
+  },
+  "final_prompt": "A heat-resistant glassblower shapes molten orange glass on a metre-long rod, within the Venetian setting of canals, gondolas navigating the Grand Canal's dark water, mooring posts, bridges, and calli."
+}

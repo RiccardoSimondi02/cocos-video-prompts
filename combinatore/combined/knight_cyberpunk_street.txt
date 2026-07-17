@@ -1,0 +1,29 @@
+Title: knight-cyberpunk_street
+
+Head Concept Name: knight
+Modifier Concept Name: cyberpunk_street
+
+
+modifier, -indoor
+
+T(modifier), building, 0.9
+T(modifier), metal, 0.84
+T(modifier), glass, 0.78
+T(modifier), neon, 0.75
+T(modifier), sign, 0.75
+T(modifier), wet, 0.75
+T(modifier), city, 0.68
+T(modifier), claustrophobic, 0.6
+
+T(head), steel, 0.9
+T(head), chainmail_ring, 0.79
+T(head), plate, 0.76
+T(head), heraldic, 0.7
+T(head), horse, 0.7
+T(head), shield, 0.67
+T(head), lance, 0.6
+T(head), sabaton, 0.6
+
+
+Result: {"building": 0.9, "metal": 0.84, "glass": 0.78, "neon": 0.75, "sign": 0.75, "wet": 0.75, "city": 0.68, "claustrophobic": 0.6, "steel": 0.9, "chainmail_ring": 0.79, "plate": 0.76, "heraldic": 0.7, "horse": 0.7, "shield": 0.67, "@scenario_probability": 0.28809413023599934}
+Scenario: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0.28809413023599934]
