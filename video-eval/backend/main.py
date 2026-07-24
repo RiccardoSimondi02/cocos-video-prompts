@@ -162,14 +162,18 @@ def new_session():
             system_A, system_B = "base", "mine"
             video_A, video_B = p["base"], p["mine"]
 
-        items.append({
+        item = {
             "concept": p["concept"],
             "label": p["label"],
             "video_A": f"/videos/{video_A}",
             "video_B": f"/videos/{video_B}",
             "system_A": system_A,
             "system_B": system_B,
-        })
+        }
+        if p.get("reference"):
+            item["reference"] = f"/videos/{p['reference']}"
+            item["reference_caption"] = p.get("reference_caption", "")
+        items.append(item)
 
     return {"session_id": session_id, "items": items}
 

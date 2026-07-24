@@ -16,7 +16,9 @@
       "concept": "deep_sea_diver_coral_reef",
       "label": "Deep sea diver in a coral reef",
       "mine": "mine_deep_sea_diver_coral_reef.mp4",
-      "base": "base_deep_sea_diver_coral_reef.mp4"
+      "base": "base_deep_sea_diver_coral_reef.mp4",
+      "reference": "ref_deep_sea_diver.jpg",
+      "reference_caption": "Riferimento: esempio di deep sea diver"
     },
     {
       "concept": "wrestler_turin2",
@@ -29,6 +31,18 @@
       "label": "Wrestler in Turin",
       "mine": "mine_wrestler_turin.mp4",
       "base": "base_wrestler_turin_kling2.mp4"
+    },
+    {
+      "concept": "glassblower_venice",
+      "label": "Glass blower in Venice",
+      "mine": "mine_glassblower_venice.mp4",
+      "base": "base_glassblower_venice.mp4"
+    },
+    {
+      "concept": "knight_neonstreet",
+      "label": "Knight in a neon street",
+      "mine": "mine_knight_neonstreet.mp4",
+      "base": "base_knight_neonstreet.mp4"
     }
   ]
 }

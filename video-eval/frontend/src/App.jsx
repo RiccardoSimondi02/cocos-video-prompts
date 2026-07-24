@@ -109,6 +109,13 @@ export default function App() {
         </div>
       </header>
 
+      {item.reference && (
+        <figure className="reference">
+          <img src={item.reference} alt={item.reference_caption || "Immagine di riferimento"} />
+          {item.reference_caption && <figcaption>{item.reference_caption}</figcaption>}
+        </figure>
+      )}
+
       <div className="videos">
         <VideoCard tag="A" src={item.video_A} />
         <VideoCard tag="B" src={item.video_B} />
