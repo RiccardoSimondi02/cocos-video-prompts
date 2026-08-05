@@ -131,7 +131,6 @@ def build_llm_payload(
 ) -> dict[str, Any]:
     subject_properties = deduplicate_properties(parsed_data.get("subject_properties", []))
     environment_properties = deduplicate_properties(parsed_data.get("environment_properties", []))
-    negative_properties = deduplicate_properties(parsed_data.get("negative_properties", []))
     unknown_properties = deduplicate_properties(parsed_data.get("unknown_properties", []))
 
     subject_properties = select_top_k(subject_properties, subject_top_k)
@@ -142,7 +141,6 @@ def build_llm_payload(
         "subject_properties": [item["property"] for item in subject_properties],
         "environment": parsed_data["environment"],
         "environment_properties": [item["property"] for item in environment_properties],
-        "negative_properties": [item["property"] for item in negative_properties],
         "unknown_properties": [item["property"] for item in unknown_properties],
         "constraints": {
             "do_not_add_new_content": True,
@@ -171,7 +169,6 @@ Rules:
   camera instructions, or style elements unless directly supported by the input.
 - Preserve the distinction between subject and environment.
 - Output exactly one concise, visually descriptive sentence.
-- Highlight the negative properties.
 
 Structured input:
 {json.dumps(payload, ensure_ascii=False, indent=2)}
