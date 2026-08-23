@@ -25,7 +25,7 @@ def main():
 
     extracted = extract_typical_properties_from_corpus(
         concepts_for_extraction,
-        top_k=8
+        top_k=12
     )
 
     prototypes = []

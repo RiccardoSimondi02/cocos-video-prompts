@@ -227,3 +227,7 @@ video/
 prompt usati per video.txt
 prompt x fonti.txt
 **/node_modules
+combinatore/combined
+data/prototypesv3.json
+generazione_prompt/results
+generazione_prompt/prompt.json
