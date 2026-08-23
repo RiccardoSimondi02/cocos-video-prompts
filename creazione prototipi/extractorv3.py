@@ -31,7 +31,7 @@ GENERIC_LEMMAS = {
     "someone", "something", "life", "training", "body",
     "visual", "scene", "long", "silhouette", "like",
     "concept", "property", "feature", "image", "video", "large", 
-    "small", "formation", "face", "design", "visible"
+    "small", "formation", "face", "design", "visible", "thick"
 }
 
 
