@@ -138,6 +138,9 @@ def is_good_unigram_token(token) -> bool:
 
     if not is_valid_term_string(lemma):
         return False
+    # per evitare double count
+    if "_" in lemma:
+        return False
 
     if token.is_stop:
         return False
@@ -184,16 +187,20 @@ def extract_unigrams(doc) -> list[str]:
     return lemmas
 
 
-def extract_surface_bigrams(doc) -> list[str]:
+def extract_surface_bigrams(doc) -> dict[tuple[int, int], str]:
     """
     Estrae bigrammi da token realmente consecutivi nel testo.
+
+    Ritorna un dict {(idx_a, idx_b): "lemma_a_lemma_b"}: la chiave e' lo span
+    di token, cosi' lo stesso span trovato anche da extract_chunk_bigrams
+    viene conteggiato una sola volta.
 
     Esempi:
     - white suit -> white_suit
     - space helmet -> space_helmet
     - historic center -> historic_center
     """
-    bigrams = []
+    bigrams = {}
 
     for i in range(len(doc) - 1):
         a = doc[i]
@@ -214,19 +221,22 @@ def extract_surface_bigrams(doc) -> list[str]:
         if lemma_a == lemma_b:
             continue
 
-        bigrams.append(f"{lemma_a}_{lemma_b}")
+        bigrams[(a.i, b.i)] = f"{lemma_a}_{lemma_b}"
 
     return bigrams
 
 
-def extract_chunk_bigrams(doc) -> list[str]:
+def extract_chunk_bigrams(doc) -> dict[tuple[int, int], str]:
     """
     Estrae bigrammi dai noun chunks.
 
     Utile per recuperare coppie nominali significative anche quando
     compaiono dentro gruppi nominali più lunghi.
+
+    Ritorna un dict {(idx_a, idx_b): stessa chiave per-span di extract_surface_bigrams: se lo stesso span
+    viene trovato da entrambi i metodi conta una volta sola.
     """
-    bigrams = []
+    bigrams = {}
 
     for chunk in doc.noun_chunks:
         valid_tokens = [
@@ -250,7 +260,7 @@ def extract_chunk_bigrams(doc) -> list[str]:
             if lemma_a == lemma_b:
                 continue
 
-            bigrams.append(f"{lemma_a}_{lemma_b}")
+            bigrams[(a.i, b.i)] = f"{lemma_a}_{lemma_b}"
 
     return bigrams
 
@@ -276,13 +286,15 @@ def extract_terms(text: str) -> list[str]:
     doc = nlp(normalized_text)
 
     unigrams = extract_unigrams(doc)
-    surface_bigrams = extract_surface_bigrams(doc)
-    chunk_bigrams = extract_chunk_bigrams(doc)
+
+    bigram_by_span = {}
+    bigram_by_span.update(extract_surface_bigrams(doc))
+    bigram_by_span.update(extract_chunk_bigrams(doc))
+    bigrams = list(bigram_by_span.values())
 
     all_terms = []
     all_terms.extend(unigrams)
-    all_terms.extend(surface_bigrams)
-    all_terms.extend(chunk_bigrams)
+    all_terms.extend(bigrams)
     all_terms.extend(hyphenated_terms)
     
     all_terms = [
@@ -378,11 +390,15 @@ def score_terms_hybrid_for_document(
     n_docs: int,
     alpha_tfidf: float = 0.60,
     beta_freq: float = 0.40,
+    bigram_bonus: float = 2.4,
 ) -> dict[str, float]:
     """
     Score ibrido basato su:
     - TF-IDF normalizzato
     - frequenza locale normalizzata
+
+    I bigrammi ricevono un bonus moltiplicativo
+    esplicito e uniforme essendo spesso più informativi degli unigrammi.
     """
     if not doc_terms:
         return {}
@@ -406,6 +422,9 @@ def score_terms_hybrid_for_document(
             alpha_tfidf * tfidf_norm.get(term, 0.0)
             + beta_freq * freq_norm.get(term, 0.0)
         )
+
+        if "_" in term:
+            score *= bigram_bonus
 
         hybrid[term] = max(score, 0.0)
 
