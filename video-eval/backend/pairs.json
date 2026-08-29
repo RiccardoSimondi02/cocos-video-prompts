@@ -39,8 +39,8 @@
       "base": "base_glassblower_venice.mp4"
     },
     {
-      "concept": "knight_neonstreet",
-      "label": "Knight in a neon street",
+      "concept": "knight_cyberpunkstreet",
+      "label": "Knight in a cyberpunk street",
       "mine": "mine_knight_neonstreet.mp4",
       "base": "base_knight_neonstreet.mp4"
     }

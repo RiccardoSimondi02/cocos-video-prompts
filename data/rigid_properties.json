@@ -36,5 +36,9 @@
   "venice": {
     "positive": ["outdoor"],
     "negative": []
+  },
+  "turin": {
+    "positive": ["outdoor"],
+    "negative": ["mat"]
   }
 }
